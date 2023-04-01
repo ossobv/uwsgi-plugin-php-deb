@@ -1,0 +1,137 @@
+uwsgi-plugin-php (0.0.15-0osso1+ubu22.04) jammy; urgency=medium
+
+  * Build for Ubuntu/Jammy. See README.rst for reasoning:
+    https://github.com/ossobv/uwsgi-plugin-php-deb
+
+ -- Walter Doekes <wjdoekes+uwsgi@osso.nl>  Sat, 01 Apr 2023 17:21:49 +0200
+
+uwsgi-plugin-php (0.0.15) unstable; urgency=medium
+
+  * rebuild against source patched to support PHP 8.2;
+    closes: bug#1028092, thanks to Adrian Bunk and Alexandre Rossi
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 27 Jan 2023 12:35:23 +0100
+
+uwsgi-plugin-php (0.0.14) unstable; urgency=medium
+
+  * declare compliance with Debian Policy 4.6.2
+  * build-depend on dh-sequence-uwsgi (not uwsgi-dev)
+  * update lintian overrides
+  * update copyright info: update source URI
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 22 Dec 2022 16:11:39 +0100
+
+uwsgi-plugin-php (0.0.13) unstable; urgency=medium
+
+  * declare compliance with Debian Policy 4.6.0
+  * update copyright info:
+    + use Reference field (not License-Reference);
+      tighten lintian overrides
+    + update coverage
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 12 Oct 2021 10:52:20 +0200
+
+uwsgi-plugin-php (0.0.12) unstable; urgency=medium
+
+  * rebuild against source patched to remove PHP TSRMLS_* macros;
+    tighten build-dependency on uwsgi-src, as extra caution;
+    closes: bug#989191, thanks to Bryce Harrington
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 28 May 2021 08:11:00 +0200
+
+uwsgi-plugin-php (0.0.11) unstable; urgency=medium
+
+  * set Rules-Requires-Root: no
+  * use debhelper compatibility level 13 (not 12)
+  * declare compliance with Debian Policy 4.5.1
+  * copyright: update coverage
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 11 Jan 2021 17:19:31 +0100
+
+uwsgi-plugin-php (0.0.10) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * better parsing of php version
+
+  [ Jonas Smedegaard ]
+  * tighten perl oneliner
+  * copyright: update coverage
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 20 Jun 2020 13:36:49 +0200
+
+uwsgi-plugin-php (0.0.9) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * drop php5 alternatives: php5 is unsupported even in oldstable
+  * explicitly depend on libphp<version>-embed;
+    closes: bug#962186
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 08 Jun 2020 20:31:50 +0200
+
+uwsgi-plugin-php (0.0.8) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * autopkgtest:
+    + ensure logging of uwsgi messages and curl errors
+    + bind to localhost only
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 03 Jun 2020 12:49:43 +0200
+
+uwsgi-plugin-php (0.0.7) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * autopkgtest:
+    + ensure proper test failure for #933736
+    + use a proper tmpdir for test files and ensure proper uwsgi stop
+    + put some clues in the log when uwsgi does not start
+    + cleanup only what's there
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 31 May 2020 20:35:34 +0200
+
+uwsgi-plugin-php (0.0.6) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * add basic autopkgtest
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 26 May 2020 14:20:44 +0200
+
+uwsgi-plugin-php (0.0.5) unstable; urgency=medium
+
+  * declare compliance with Debian Policy 4.5.0
+  * use debhelper compatibility level 12 (not 9);
+    build-depend on debhelper-compat (not debhelper)
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 25 May 2020 16:04:13 +0200
+
+uwsgi-plugin-php (0.0.4) unstable; urgency=medium
+
+  [ Alexandre Rossi ]
+  * Update VCS URLs.
+  * Declare compliance with Debian Policy 4.4.0.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 26 Aug 2019 10:57:25 +0200
+
+uwsgi-plugin-php (0.0.3) unstable; urgency=medium
+
+  * Update package relations:
+    + Fix depend on libphp-embed.
+      Closes: Bug#889047. Thanks to Adrien Clerc.
+  * Use package section optional (not extra: obsolete).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 01 Feb 2018 19:43:43 +0100
+
+uwsgi-plugin-php (0.0.2) unstable; urgency=medium
+
+  * Update homepage.
+  * Add README.source documenting why this is a Debian-native package.
+    Thanks to Chris Lamb.
+  * Declare compliance with Debian Policy 4.1.1.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 03 Oct 2017 19:16:49 +0200
+
+uwsgi-plugin-php (0.0.1) unstable; urgency=medium
+
+  * Initial separate packaging.
+    (see source package uwsgi for earlier releases).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 29 Sep 2017 11:44:44 +0200

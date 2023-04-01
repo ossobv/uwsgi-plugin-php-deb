@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+# Fuse uWSGI and our package versions, flattened to native format
+UWSGI_VERSION = $(shell dpkg-query --show --showformat '$${Version}' uwsgi-src)
+OUR_BINARY_VERSION = $(subst -,+,$(UWSGI_VERSION))+$(DEB_VERSION)
+
+PHP_ABI_ID = $(shell php-config --version | perl -F'\.' -E 'say join(".", @F[0,1])')
+
+%:
+	dh $@ --with uwsgi
+
+override_dh_auto_build:
+	uwsgi --build-plugin /usr/src/uwsgi/plugins/php
+	help2man \
+		--name 'fast (pure C), self-healing, developer-friendly WSGI server' \
+		--section 1 \
+		--no-info \
+		--version-string="$(UWSGI_VERSION)" \
+		debian/uwsgi_php \
+		> debian/uwsgi_php.1
+
+override_dh_gencontrol:
+	echo php:Depends=libphp$(PHP_ABI_ID)-embed, \
+		phpapi-$(shell php-config --phpapi) \
+		>> debian/$(DEB_SOURCE).substvars
+	dh_gencontrol -- -v$(OUR_BINARY_VERSION)

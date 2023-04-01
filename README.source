@@ -1,0 +1,16 @@
+Native package shipping build of upstream code
+----------------------------------------------
+
+This is a Debian native package, yet is virtually empty and depends on
+and essentially builds from a *-src package from an upstream project.
+
+Reason for this construct is that the upstream project includes plugins
+for a wide range for programming languages and frameworks, causing
+headaches with transitions of those: By separating the build of each
+uwsgi plugin, changes to Perl ABI, MongoDB ABI, PHP ABI, etc. can
+transition independently of each other - and if a particular uwsgi
+plugin shows problematic for a transition then it can be dropped
+without affecting the rest of uwsgi.
+
+
+  -- Jonas Smedegaard <dr@jones.dk>  Tue, 03 Oct 2017 19:03:21 +0200

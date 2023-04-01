@@ -1,0 +1,36 @@
+#!/bin/sh
+
+
+set -e
+
+tmpdir=$(mktemp -d)
+logfile="$tmpdir/uwsgi.log"
+pidfile="$tmpdir/uwsgi.pid"
+outfile="$tmpdir/out.txt"
+
+UWSGI_TMP_DIR="$tmpdir" uwsgi debian/tests/php.ini \
+    --safe-pidfile "$pidfile" --daemonize "$logfile" 2>&1
+sleep 4
+
+trap cleanup 0
+
+cleanup() {
+    if [ -f "$logfile" ]; then
+        echo "----- uwsgi logfile"
+        cat "$logfile"
+    fi
+    [ -f "$pidfile" ] && uwsgi --stop "$pidfile"
+    rm -f "$logfile" "$pidfile" "$tmpdir/uwsgi.cache" "$outfile"
+    [ -d "$tmpdir" ] && rmdir "$tmpdir"
+}
+
+curl --fail -o "$outfile" http://localhost:9090 2>&1
+output=$(cat "$outfile")
+
+if [ "$output" = "Hello World!" ]; then
+    echo "Got \"$output\""
+    exit 0
+else
+    echo "\"$output\" is different from \"Hello World!\"" >&2
+    exit 1
+fi

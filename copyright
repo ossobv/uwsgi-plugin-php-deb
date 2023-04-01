@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Debian packaging of uWSGI PHP plugin
+Source: https://salsa.debian.org/uwsgi-team/uwsgi-plugin-php
+
+Files: debian/*
+Copyright:
+  2017-2018, 2020-2021  Jonas Smedegaard <dr@jones.dk>
+License-grant:
+ This packaging is free software;
+ you can redistribute it and/or modify it
+ under the terms of the GNU General Public License
+ as published by the Free Software Foundation;
+ either version 3, or (at your option) any later version.
+License: GPL-3+
+Reference: debian/copyright
+
+License: GPL-3+
+Reference: /usr/share/common-licenses/GPL-3

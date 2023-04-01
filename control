@@ -1,0 +1,38 @@
+Source: uwsgi-plugin-php
+Section: httpd
+Priority: optional
+Maintainer: uWSGI packaging team <pkg-uwsgi-devel@lists.alioth.debian.org>
+Uploaders: Jonas Smedegaard <dr@jones.dk>
+Build-Depends:
+ debhelper-compat (= 13),
+ help2man,
+ php-dev,
+ libphp-embed,
+ uwsgi-dev,
+ uwsgi-src (>= 2.0.19.1-7~),
+Standards-Version: 4.6.2
+Homepage: https://uwsgi-docs.readthedocs.io/en/latest/
+Vcs-Git: https://salsa.debian.org/uwsgi-team/uwsgi-plugin-php.git
+Vcs-Browser: https://salsa.debian.org/uwsgi-team/uwsgi-plugin-php
+Rules-Requires-Root: no
+
+Package: uwsgi-plugin-php
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${php:Depends},
+ ${uwsgi:Depends},
+Provides: php
+Description: PHP plugin for uWSGI
+ uWSGI presents a complete stack
+ for networked/clustered web applications,
+ implementing message/object passing, caching,
+ RPC and process management.
+ It is designed to be fully modular.
+ This means that different plugins can be used
+ in order to add compatibility
+ with tons of different technology
+ on top of the same core.
+ .
+ This package provides PHP plugin for uWSGI.

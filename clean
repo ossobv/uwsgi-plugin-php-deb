@@ -1,0 +1,3 @@
+.uwsgi_plugins_builder/
+*_plugin.so
+debian/uwsgi_*.1
